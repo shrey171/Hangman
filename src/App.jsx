@@ -5,6 +5,7 @@ import Stickman  from './Components/Stickman'
 import Keyboard from './Components/Keyboard'
 import Word from './Components/Word'
 import Message from './Components/Message'
+import wordList from './Components/wordList'
 
 function App() {
   const [originalWord, setOriginalWord] = useState(['L']);
@@ -24,27 +25,29 @@ function App() {
   }
 
   useEffect(()=>{
-    fetch('https://random-word-api.herokuapp.com/word')
-    .then(data => data.json())
-    .then(res => {
-      const temp = res[0].toUpperCase();
-      setOriginalWord(temp.split(""));
-    });
+    setOriginalWord(()=> wordList[Math.floor(Math.random() * wordList.length)].toUpperCase().split(""))
   }, [])
 
   useEffect(()=>{
-    if(answer.length === originalWord.length) {
+    if(answer.length === originalWord.length && counter < 6) {
       setMessage("YOU WIN");
       setMessageClasses("text-green-700 bg-green-100 py-6");
       hideKeyboard.current = true;
     }
   }, [answer]);
-
+  
   useEffect(()=>{
-    console.log(originalWord);
     if (counter === 6){
       setMessage("YOU LOSE");
       setMessageClasses("text-red-700 bg-red-100 py-6");
+      hideKeyboard.current = true;
+      setAnswer(()=>{
+        const arr = [];
+        for (let i = 0; i < originalWord.length; i++) {
+          arr[i] = i;          
+        }
+        return arr;
+      });
       return;
     }
   }, [counter]);

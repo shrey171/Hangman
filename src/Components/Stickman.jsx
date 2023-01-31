@@ -5,10 +5,10 @@ export default function Stickman ({counter}) {
     document.getElementById(counter).classList.add('visible');
   }, [counter])
   return (
-    <div className='w-[400px] flex flex-wrap mx-auto mt-10'>
+    <div className='w-[300px] flex flex-wrap mx-auto mt-10'>
         <div className='line horizontal-line w-[51.5%] mx-auto'></div>
         <div className='flex items-center flex-col w-6/12'>
-            <div className='line vertical-line h-[400px]'></div>
+            <div className='line vertical-line h-[300px]'></div>
             <div className='line horizontal-line w-full'></div>
         </div>
         <div className='flex flex-col items-center w-6/12'>

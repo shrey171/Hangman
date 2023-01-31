@@ -5,12 +5,12 @@
 @layer components {
     body {
         --thickness: 8px;
-        --stickLimbSize: 100px;
-        @apply bg-violet-50;
+        --stickLimbSize: 70px;
+        @apply bg-violet-50 dark:bg-neutral-900;
     }
 
     .line {
-        @apply bg-black;
+        @apply bg-black dark:bg-neutral-300;
     }
 
     .vertical-line {
@@ -23,15 +23,15 @@
     }
 
     .stick-head {
-        --headSize: 75px;
+        --headSize: 50px;
         width: var(--headSize)!important;
         height: var(--headSize);
-        border: var(--thickness) solid black;
-        @apply rounded-full;
+        border: var(--thickness) solid;
+        @apply rounded-full border-neutral-300;
     }
 
     .stick-body {
-        @apply h-28 mx-auto;
+        @apply h-20 mx-auto;
     }
 
     .stick-limb {
@@ -39,16 +39,16 @@
     }
 
     .stick-rh {
-        @apply rotate-[-45deg] translate-y-[-107px] translate-x-[35px];
+        @apply rotate-[-45deg] translate-y-[-80px] translate-x-[25px];
     }
     .stick-lh {
-        @apply rotate-[45deg] translate-y-[-100px] translate-x-[-35px];
+        @apply rotate-[45deg] translate-y-[-72px] translate-x-[-25px];
     }
     .stick-rl {
-        @apply rotate-[60deg] translate-y-3 translate-x-[25px];
+        @apply rotate-[60deg] translate-y-0 translate-x-[17px];
     }
     .stick-ll {
-        @apply rotate-[-60deg] translate-y-5 translate-x-[-25px];
+        @apply rotate-[-60deg] translate-y-2 translate-x-[-17px];
     }
 
     .keyboard {
@@ -61,9 +61,10 @@
 
     .key {
         @apply
-        border-violet-500 bg-violet-300 text-violet-800
+        border-violet-500 bg-violet-300 text-violet-300 
+        dark:border-neutral-300 dark:bg-violet-900
         hover:bg-violet-400 hover:cursor-pointer active:bg-violet-500
-          border rounded py-4 w-20 font-medium text-2xl text-center
+          border rounded py-2 w-20 font-medium text-2xl text-center
     }
 
     .disabled {

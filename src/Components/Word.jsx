@@ -5,7 +5,8 @@ export default function Word({word, display}) {
   const myRef = useRef(null);
   useEffect(()=>{
     const letters = myRef.current.querySelectorAll("div");
-    for (const i of display) {
+    for (const i of display) {      
+      console.log(display);
       letters[i].innerHTML = word[i];
     }
   }, [display])
