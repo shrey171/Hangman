@@ -25,7 +25,11 @@ function App() {
   }
 
   useEffect(()=>{
-    setOriginalWord(()=> wordList[Math.floor(Math.random() * wordList.length)].toUpperCase().split(""))
+    setOriginalWord(()=> {
+      const temp = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase().split("");
+      console.log(temp.join(''));
+      return temp;
+    })
   }, [])
 
   useEffect(()=>{
